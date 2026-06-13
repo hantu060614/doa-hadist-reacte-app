@@ -1,50 +1,61 @@
-# Welcome to your Expo app 👋
+# 📖 Doa & Hadist App - UAS Edition
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplikasi **Doa & Hadist** ini adalah proyek aplikasi mobile berbasis React Native (Expo) yang dikembangkan sebagai tugas Ujian Akhir Semester (UAS) mata kuliah React Native di Politeknik LP3I Cirebon.
 
-## Get started
+Aplikasi ini menyediakan panduan lengkap bagi pengguna untuk membaca doa harian, mempelajari hadist pilihan, serta fitur penunjang ibadah lainnya.
 
-1. Install dependencies
+## ✨ Fitur Unggulan
 
+1. **📚 Kumpulan Doa Lengkap:** Lebih dari 20 doa harian, disusun berdasarkan kategori (Aktivitas, Ibadah, Kesulitan, dll).
+2. **📖 Hadist Pilihan:** Lebih dari 15 hadist shahih beserta perawi dan penjelasannya.
+3. **🎨 Desain UI Islami & Elegan:** Mengusung tema *Emerald Green* dan *White* dengan tampilan modern (*Clean UI*).
+4. **🔍 Pencarian Cepat (Real-time Search):** Cari doa atau hadist dengan cepat tanpa delay.
+5. **🗂️ Filter Kategori:** Kelompokkan doa dan hadist berdasarkan tema secara praktis.
+6. **❤️ Favorit Lokal (Offline):** Simpan doa atau hadist yang sering dibaca berkat integrasi `AsyncStorage`.
+7. **🔊 Text-to-Speech (TTS):** Dengarkan arti terjemahan dibacakan langsung oleh sistem perangkat Anda.
+8. **📋 Salin Teks (Copy to Clipboard):** Memudahkan pengguna menyalin keseluruhan isi doa/hadist (Arab, Latin, Arti) untuk dibagikan.
+9. **📿 Tasbih Digital Interaktif:** Penghitung dzikir dengan *Haptic Feedback* (getaran) setiap putaran ke-33.
+10. **📸 Profil Kustom:** Ubah foto profil dari galeri bawaan HP yang tersimpan secara lokal.
+
+## 🛠️ Arsitektur & Teknologi
+
+Meskipun menggunakan *environment* Expo, proyek ini dirancang dengan struktur *Clean Code* layaknya React Native CLI agar mudah dikembangkan dan dirawat (*Maintainable*):
+
+```text
+/src
+  ├── components/    # Komponen UI yang bisa dipakai ulang (Card, Header, dll)
+  ├── data/          # Berisi basis data statis (doa.js, hadist.js)
+  ├── navigation/    # Pengaturan Bottom Tabs dan Stack Navigation
+  ├── screens/       # Layar utama (Home, Detail, Tasbih, Tentang, dll)
+  └── utils/         # Fungsi bantuan (Penyimpanan lokal, Konfigurasi Tema)
+```
+
+**Dependensi Utama:**
+- `expo` & `react-native`
+- `@react-navigation/native` & `@react-navigation/bottom-tabs`
+- `@react-native-async-storage/async-storage`
+- `expo-speech`, `expo-clipboard`, `expo-image-picker`
+
+## 🚀 Cara Instalasi & Menjalankan
+
+1. **Clone repositori ini:**
+   ```bash
+   git clone https://github.com/hantu060614/doa-hadist-reacte-app.git
+   cd doa-hadist-reacte-app
+   ```
+2. **Install Dependensi:**
    ```bash
    npm install
    ```
-
-2. Start the app
-
+3. **Jalankan Aplikasi:**
    ```bash
-   npx expo start
+   npm start
    ```
+4. **Buka di HP:**
+   Gunakan aplikasi **Expo Go** di Android atau iOS untuk scan QR Code yang muncul di terminal.
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**Dikembangkan oleh:**
+👤 **Hamami Hamzah**
+🎓 Politeknik LP3I Cirebon (Tahun Ajaran 2025/2026)
