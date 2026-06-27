@@ -1,61 +1,79 @@
-# 📖 Doa & Hadist App - UAS Edition
+# 📖 Aplikasi Doa & Hadist - Tugas UAS React Native
 
-Aplikasi **Doa & Hadist** ini adalah proyek aplikasi mobile berbasis React Native (Expo) yang dikembangkan sebagai tugas Ujian Akhir Semester (UAS) mata kuliah React Native di Politeknik LP3I Cirebon.
+Aplikasi **Doa & Hadist** ini adalah aplikasi mobile berbasis **React Native (Expo)** yang dikembangkan secara khusus untuk memenuhi tugas **Ujian Akhir Semester (UAS)** pada mata kuliah Pemrograman Mobile / React Native di **Politeknik LP3I Cirebon**.
 
-Aplikasi ini menyediakan panduan lengkap bagi pengguna untuk membaca doa harian, mempelajari hadist pilihan, serta fitur penunjang ibadah lainnya.
+Aplikasi ini dirancang untuk memberikan kemudahan bagi umat muslim dalam membaca doa harian, mempelajari hadist pilihan, serta menunjang ibadah melalui fitur-fitur interaktif.
 
-## ✨ Fitur Unggulan
+## 🎯 Tujuan Pengembangan
+1. **Memenuhi Syarat Akademik**: Sebagai evaluasi akhir pemahaman mahasiswa terhadap pengembangan aplikasi mobile menggunakan React Native.
+2. **Implementasi Teknologi**: Menerapkan konsep *State Management*, *Local Storage* (`AsyncStorage`), *Navigation* (Stack & Bottom Tabs), serta penggunaan Native Modules (seperti Text-to-Speech dan Haptic Feedback).
+3. **Manfaat Praktis**: Menyediakan aplikasi yang ringan, responsif, dan bermanfaat untuk kebutuhan ibadah sehari-hari.
 
-1. **📚 Kumpulan Doa Lengkap:** Lebih dari 20 doa harian, disusun berdasarkan kategori (Aktivitas, Ibadah, Kesulitan, dll).
-2. **📖 Hadist Pilihan:** Lebih dari 15 hadist shahih beserta perawi dan penjelasannya.
-3. **🎨 Desain UI Islami & Elegan:** Mengusung tema *Emerald Green* dan *White* dengan tampilan modern (*Clean UI*).
-4. **🔍 Pencarian Cepat (Real-time Search):** Cari doa atau hadist dengan cepat tanpa delay.
-5. **🗂️ Filter Kategori:** Kelompokkan doa dan hadist berdasarkan tema secara praktis.
-6. **❤️ Favorit Lokal (Offline):** Simpan doa atau hadist yang sering dibaca berkat integrasi `AsyncStorage`.
-7. **🔊 Text-to-Speech (TTS):** Dengarkan arti terjemahan dibacakan langsung oleh sistem perangkat Anda.
-8. **📋 Salin Teks (Copy to Clipboard):** Memudahkan pengguna menyalin keseluruhan isi doa/hadist (Arab, Latin, Arti) untuk dibagikan.
-9. **📿 Tasbih Digital Interaktif:** Penghitung dzikir dengan *Haptic Feedback* (getaran) setiap putaran ke-33.
-10. **📸 Profil Kustom:** Ubah foto profil dari galeri bawaan HP yang tersimpan secara lokal.
+## ✨ Fitur Utama & Implementasi Teknis
 
-## 🛠️ Arsitektur & Teknologi
+1. **📚 Kumpulan Doa Lengkap & 📖 Hadist Pilihan**
+   Menampilkan daftar doa dan hadist dari data lokal (*dummy data/local JSON*) yang di-render secara efisien menggunakan `FlatList`.
+2. **🔍 Pencarian Cepat (Real-time Search) & 🗂️ Filter Kategori**
+   Menggunakan *state* pada React untuk memfilter data berdasarkan teks input pengguna dan kategori yang dipilih tanpa jeda.
+3. **❤️ Favorit Lokal (Offline)**
+   Mengimplementasikan `@react-native-async-storage/async-storage` untuk menyimpan dan mengelola data doa/hadist favorit pengguna secara persisten di perangkat.
+4. **🔊 Text-to-Speech (TTS) & 📋 Salin Teks**
+   Memanfaatkan `expo-speech` untuk membacakan terjemahan secara audio dan `expo-clipboard` agar teks mudah disalin.
+5. **📿 Tasbih Digital Interaktif**
+   Penghitung dzikir yang menggunakan *state* untuk menghitung jumlah putaran, dilengkapi *Haptic Feedback* (`expo-haptics`) yang bergetar pada hitungan tertentu (misal: ke-33).
+6. **📸 Profil Kustom**
+   Menggunakan `expo-image-picker` untuk mengakses galeri perangkat secara lokal dan mengubah foto profil pengguna.
+7. **🎨 Desain UI Islami & Elegan**
+   Dikembangkan menggunakan *StyleSheet* bawaan React Native dengan struktur komponen modular yang menjamin UI yang konsisten dan responsif.
 
-Meskipun menggunakan *environment* Expo, proyek ini dirancang dengan struktur *Clean Code* layaknya React Native CLI agar mudah dikembangkan dan dirawat (*Maintainable*):
+## 🛠️ Arsitektur & Struktur Proyek
+
+Proyek ini menerapkan prinsip *Clean Code* untuk memastikan skalabilitas dan kemudahan perawatan (*maintainability*):
 
 ```text
 /src
-  ├── components/    # Komponen UI yang bisa dipakai ulang (Card, Header, dll)
-  ├── data/          # Berisi basis data statis (doa.js, hadist.js)
-  ├── navigation/    # Pengaturan Bottom Tabs dan Stack Navigation
-  ├── screens/       # Layar utama (Home, Detail, Tasbih, Tentang, dll)
-  └── utils/         # Fungsi bantuan (Penyimpanan lokal, Konfigurasi Tema)
+  ├── components/    # Komponen UI Reusable (Card, Header, SearchBar, dll)
+  ├── data/          # Basis data statis (doa.js, hadist.js)
+  ├── navigation/    # Konfigurasi React Navigation (Bottom Tabs & Stack)
+  ├── screens/       # Layar utama (Home, Detail, Tasbih, Favorit, Profile)
+  └── utils/         # Fungsi helper dan konfigurasi tema
 ```
 
 **Dependensi Utama:**
 - `expo` & `react-native`
-- `@react-navigation/native` & `@react-navigation/bottom-tabs`
+- `@react-navigation/native`, `@react-navigation/bottom-tabs`, `@react-navigation/native-stack`
 - `@react-native-async-storage/async-storage`
-- `expo-speech`, `expo-clipboard`, `expo-image-picker`
+- Plugin Expo: `expo-speech`, `expo-clipboard`, `expo-image-picker`, `expo-haptics`
 
-## 🚀 Cara Instalasi & Menjalankan
+## 🚀 Panduan Instalasi & Menjalankan Aplikasi
 
-1. **Clone repositori ini:**
+Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal:
+
+1. **Clone Repositori:**
    ```bash
-   git clone https://github.com/hantu060614/doa-hadist-reacte-app.git
-   cd doa-hadist-reacte-app
+   git clone https://github.com/hantu060614/kumpulan-doa-hadist-reacte-app.git
+   cd kumpulan-doa-hadist-reacte-app
    ```
 2. **Install Dependensi:**
    ```bash
    npm install
    ```
-3. **Jalankan Aplikasi:**
+3. **Jalankan Server Expo:**
    ```bash
    npm start
    ```
-4. **Buka di HP:**
-   Gunakan aplikasi **Expo Go** di Android atau iOS untuk scan QR Code yang muncul di terminal.
+   Atau
+   ```bash
+   npx expo start
+   ```
+4. **Testing di Perangkat:**
+   Gunakan aplikasi **Expo Go** pada perangkat Android atau iOS untuk memindai QR Code yang muncul di terminal.
 
 ---
 
-**Dikembangkan oleh:**
-👤 **Hamami Hamzah**
-🎓 Politeknik LP3I Cirebon (Tahun Ajaran 2025/2026)
+**🎓 Informasi Pengembang:**
+- **Nama:** Hamami Hamzah
+- **Institusi:** Politeknik LP3I Cirebon
+- **Tahun Ajaran:** 2025/2026
+
+*Dokumentasi ini dibuat untuk mempermudah Dosen Penguji dalam meninjau struktur, fitur, dan teknologi yang diimplementasikan pada proyek aplikasi Doa & Hadist.*
